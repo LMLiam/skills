@@ -1,0 +1,4 @@
+interface:
+  display_name: "Consult Senior Advisor"
+  short_description: "Route difficult decisions to a read-only advisor"
+  default_prompt: "Use $consulting-senior-advisor to choose and consult the least expensive advisor tier that can resolve this decision."
