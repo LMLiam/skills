@@ -1,8 +1,8 @@
 # Integration Contract
 
-An integration makes the portable consultation workflow operational in one harness.
+This document is for integration maintainers. It is not part of the agent runtime instructions.
 
-Each integration must define all of these items:
+An integration makes the portable consultation workflow operational in one harness. Each integration must define:
 
 1. The exact invocation method for one advisor.
 2. The configured advisor names and model-selection policy.

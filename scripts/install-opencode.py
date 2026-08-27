@@ -107,23 +107,19 @@ def destination_root(scope: str, project: Path) -> Path:
 
 def installation_files(profile: Profile, destination: Path) -> tuple[tuple[Path, Path], ...]:
     """Map each source file to its exact destination."""
-    skill_files = tuple(
-        (source, destination / "skills" / source.relative_to(SKILL_ROOT))
-        for source in SKILL_ROOT.rglob("*")
+    skill_target = destination / "skills" / "consulting-senior-advisor"
+    skill_files = (
+        (SKILL_ROOT / "SKILL.md", skill_target / "SKILL.md"),
+        (
+            SKILL_ROOT / "references" / "decision-packet.md",
+            skill_target / "references" / "decision-packet.md",
+        ),
     )
     agent_root = profile.directory / "agents"
     agent_files = tuple((source, destination / "agents" / source.name) for source in agent_root.glob("*.md"))
-    selected_files = tuple(
-        (source, target)
-        for source, target in (*skill_files, *agent_files)
-        if source.is_file()
-    )
+    selected_files = skill_files + agent_files
     selection_target = (
-        destination
-        / "skills"
-        / "consulting-senior-advisor"
-        / "references"
-        / "active-integration.md"
+        skill_target / "references" / "active-integration.md"
     )
     return selected_files + (
         (POLICY_SOURCE, destination / "advisor-policy.md"),

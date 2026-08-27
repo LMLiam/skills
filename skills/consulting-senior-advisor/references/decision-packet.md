@@ -1,6 +1,6 @@
 # Decision Packet
 
-Use this format for each consultation.
+Build each advisor prompt with this format.
 
 ```markdown
 ## Decision packet

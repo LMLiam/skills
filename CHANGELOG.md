@@ -10,6 +10,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Rel
 
 - Restructured `consulting-senior-advisor` as a standard Agent Skill with an OpenCode integration.
 - Added an explicit OpenCode GPT-5.6 provider profile with capability-restricted advisor agents.
+- Separated agent runtime instructions from human installation and integration-maintainer documentation.
 
 ### Added
 

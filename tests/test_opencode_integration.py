@@ -59,6 +59,8 @@ class OpenCodeIntegrationTests(unittest.TestCase):
             self.assertTrue(agent.is_file())
             reference = project / ".opencode" / "skills" / "consulting-senior-advisor" / "references"
             self.assertTrue((reference / "active-integration.md").is_file())
+            self.assertFalse((project / ".opencode" / "skills" / "consulting-senior-advisor" / "evals").exists())
+            self.assertFalse((reference / "adapter-contract.md").exists())
             checked = run_command(*command, "--check", directory=project)
 
             self.assertEqual(checked.returncode, 0, checked.stderr)

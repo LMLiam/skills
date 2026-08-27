@@ -12,7 +12,7 @@ Shareable Agent Skills with harness-specific integration assets.
 
 Each skill under `skills/` follows the [Agent Skills specification](https://agentskills.io/specification). It contains portable workflow rules and does not select a model provider.
 
-An integration configures one harness. It owns harness tools, permissions, installation, and failure handling. An OpenCode provider profile maps a consultation tier to an explicit agent, model, and variant. The workflow never discovers, ranks, or selects models at runtime.
+An integration configures one harness. It owns harness tools, permissions, installation, and failure handling. Each integration follows the [integration contract](integrations/README.md). An OpenCode provider profile maps a consultation tier to an explicit agent, model, and variant. The workflow never discovers, ranks, or selects models at runtime.
 
 ```text
 skills/                         # Portable, standard Agent Skills
