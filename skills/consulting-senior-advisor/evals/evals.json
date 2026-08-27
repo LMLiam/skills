@@ -1,0 +1,59 @@
+{
+  "skill_name": "consulting-senior-advisor",
+  "schema_version": 1,
+  "evals": [
+    {
+      "id": "architecture-trade-off",
+      "should_trigger": true,
+      "prompt": "We have traced both payment flows and found that a shared idempotency record avoids duplicate charges, but it changes our migration plan. We need to choose the design before implementation.",
+      "expected_output": "The agent gathers the cited evidence, selects a configured review or challenge tier, sends one focused decision packet, and verifies the advisor recommendation before implementation.",
+      "assertions": [
+        "The agent does not implement the design before the consultation reaches a terminal result.",
+        "The decision packet identifies the migration constraint and the competing options.",
+        "The final decision distinguishes verified evidence from advisor advice."
+      ]
+    },
+    {
+      "id": "security-completion-challenge",
+      "should_trigger": true,
+      "prompt": "The authentication refactor passes its tests, but it changes token validation and account recovery. Challenge the completion decision before I merge it.",
+      "expected_output": "The agent prepares a completion decision packet with acceptance criteria, diff scope, verification, and unverified behaviour, then uses a configured challenge tier.",
+      "assertions": [
+        "The packet includes the completed verification and known gaps.",
+        "The advisor receives an advice-only task rather than implementation ownership.",
+        "The executor verifies advisor claims against the repository before reporting the result."
+      ]
+    },
+    {
+      "id": "human-owned-priority",
+      "should_trigger": false,
+      "prompt": "Should we delay the launch to add enterprise single sign-on, or ship on Friday and add it next quarter?",
+      "expected_output": "The agent asks the human for priorities, risk tolerance, and authority. It does not consult an advisor to guess a product decision.",
+      "assertions": [
+        "The agent identifies the missing human-owned decision.",
+        "The agent does not invoke an advisor."
+      ]
+    },
+    {
+      "id": "routine-documentation-edit",
+      "should_trigger": false,
+      "prompt": "Correct the spelling of 'behaviour' in the README.",
+      "expected_output": "The agent makes the routine documentation correction without consulting an advisor.",
+      "assertions": [
+        "The agent does not invoke an advisor.",
+        "The task completes without a decision packet."
+      ]
+    },
+    {
+      "id": "contradictory-concurrency-evidence",
+      "should_trigger": true,
+      "prompt": "The trace shows two workers can reserve the same job, but an existing lock test passes. We have inspected the queue code and still cannot reconcile the evidence. Determine the safest fix direction.",
+      "expected_output": "The agent gathers the relevant trace, test, and code evidence, then selects a configured challenge tier because the evidence conflicts and the decision affects data integrity.",
+      "assertions": [
+        "The packet includes evidence against the current hypothesis.",
+        "The agent selects an explicit configured advisor instead of a fallback subagent.",
+        "The outcome defines a concrete validation criterion for the selected fix direction."
+      ]
+    }
+  ]
+}
