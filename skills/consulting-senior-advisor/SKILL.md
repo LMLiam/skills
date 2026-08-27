@@ -2,7 +2,7 @@
 name: consulting-senior-advisor
 description: Use when a difficult architecture, diagnosis, concurrency, security, data integrity, compatibility, migration, public API, or completion-review decision remains unresolved after evidence gathering and needs stronger technical judgement.
 license: MIT
-compatibility: Requires OpenCode 1.18.23 or later and a configured provider profile with named advisor agents.
+compatibility: Requires a configured integration with named advisor agents.
 metadata:
   author: LMLiam
   version: "1.0.0"
@@ -12,7 +12,7 @@ metadata:
 
 Use one sequential, advice-only advisor consultation for a precise technical decision. The executor retains ownership and verifies all advice.
 
-This skill does not select a model. Install an explicit OpenCode provider profile before use. The profile owns model selection, tools, permissions, invocation, and failure handling.
+This skill does not select a model. Install an explicit integration before use. The active integration owns model selection, tools, permissions, invocation, and failure handling.
 
 ## Confirm Consultation Is Justified
 
@@ -22,7 +22,7 @@ Do not consult for routine edits, documentation corrections, simple lookups, obv
 
 ## Select a Consultation Tier
 
-Read [the active profile](references/active-profile.md) before you select an advisor. If it is unavailable, stop and ask the human to install a profile.
+Read [the active integration](references/active-integration.md) before you select an advisor. If it is unavailable, stop and ask the human to install an integration.
 
 Use the least expensive sufficient tier from the active provider profile.
 
@@ -30,7 +30,7 @@ Use the least expensive sufficient tier from the active provider profile.
 - Select a review tier for an ambiguous or high-leverage design, diagnosis, or completion decision.
 - Select a challenge tier for conflicting evidence, several interacting constraints, or material security, concurrency, data-integrity, compatibility, migration, public-API, or irreversible-state risk.
 
-The active profile maps each category to an exact named advisor. Follow that mapping. Do not infer equivalence between providers. Do not discover, rank, or select models at runtime.
+The active integration maps each category to an exact named advisor. Follow that mapping. Do not infer equivalence between providers. Do not discover, rank, or select models at runtime.
 
 ## Prepare the Decision Packet
 
@@ -40,17 +40,7 @@ Tell the advisor to inspect cited paths first and expand only when necessary. Do
 
 ## Invoke and Wait
 
-In OpenCode, invoke exactly one configured advisor in the foreground:
-
-```text
-task({
-  description: "Review technical decision",
-  subagent_type: "<exact advisor name from the active profile>",
-  prompt: "<decision packet>"
-})
-```
-
-Do not use a primary-agent, global-agent, or inheriting fallback. Do not use background mode. Do not implement the disputed decision while the consultation is active.
+Follow the active integration invocation contract. Invoke exactly one configured advisor. Do not use a primary-agent, global-agent, or inheriting fallback. Do not implement the disputed decision while the consultation is active.
 
 Wait for a terminal result. Do not cancel a consultation because it is slow or temporarily silent. If the integration reports a failure or an unavailable configured advisor, do not change the model or tier automatically. Ask the human whether to retry the same tier or continue without advice when that decision is material.
 

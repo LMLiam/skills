@@ -17,7 +17,7 @@ from opencode_profile import (
 
 
 FIELD_PATTERN = re.compile(r"^(model|variant):\s*(.+)$", re.MULTILINE)
-PERMISSION_PATTERN = re.compile(r'^  ("\*"|\w+):\s*(allow|ask|deny)$', re.MULTILINE)
+PERMISSION_ENTRY = re.compile(r'^  ("\*"|[a-z_]+): (allow|ask|deny)$')
 REQUIRED_ADVISOR_TEXT = (
     "You provide advice. You do not implement changes.",
     "Do not force a recommendation when evidence is insufficient.",
@@ -48,12 +48,36 @@ def validate_skill(errors: list[str]) -> None:
         errors.append(f"Skill has no description: {skill}")
 
 
+def flat_permissions(data: str) -> dict[str, str]:
+    """Parse the approved flat permission mapping and reject all other YAML forms."""
+    lines = data.splitlines()
+    try:
+        start = lines.index("permission:") + 1
+    except ValueError as error:
+        raise ValueError("Missing advisor permission mapping") from error
+
+    permissions: dict[str, str] = {}
+    for line in lines[start:]:
+        if not line:
+            continue
+        if not line.startswith(" "):
+            break
+        match = PERMISSION_ENTRY.fullmatch(line)
+        if not match:
+            raise ValueError("Advisor permission mapping must contain flat allow or deny entries")
+        name, action = match.groups()
+        name = name.strip('"')
+        if name in permissions:
+            raise ValueError(f"Duplicate advisor permission entry: {name}")
+        permissions[name] = action
+    return permissions
+
+
 def agent_metadata(path: Path) -> tuple[dict[str, str], dict[str, str]]:
-    """Parse the fixed scalar metadata and permissions used by advisor agents."""
+    """Parse the fixed scalar metadata and flat permissions used by advisor agents."""
     data = frontmatter(path)
     metadata = {name: value for name, value in FIELD_PATTERN.findall(data)}
-    permissions = {name.strip('"'): action for name, action in PERMISSION_PATTERN.findall(data)}
-    return metadata, permissions
+    return metadata, flat_permissions(data)
 
 
 def validate_profile(name: str, errors: list[str]) -> None:

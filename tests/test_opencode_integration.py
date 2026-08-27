@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -11,6 +12,9 @@ from pathlib import Path
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 INSTALLER = REPOSITORY_ROOT / "scripts" / "install-opencode.py"
 VALIDATOR = REPOSITORY_ROOT / "scripts" / "validate.py"
+sys.path.insert(0, str(REPOSITORY_ROOT / "scripts"))
+
+from validate import flat_permissions
 
 
 def run_command(
@@ -31,6 +35,12 @@ class OpenCodeIntegrationTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("Skill and OpenCode profiles are valid.", result.stdout)
 
+    def test_permission_parser_rejects_nested_and_duplicate_rules(self) -> None:
+        with self.assertRaisesRegex(ValueError, "flat allow or deny"):
+            flat_permissions('permission:\n  bash:\n    "*": allow')
+        with self.assertRaisesRegex(ValueError, "Duplicate advisor permission entry"):
+            flat_permissions('permission:\n  read: allow\n  read: deny')
+
     def test_project_install_detects_and_replaces_modified_file(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             project = Path(temporary_directory)
@@ -47,6 +57,8 @@ class OpenCodeIntegrationTests(unittest.TestCase):
             self.assertEqual(installed.returncode, 0, installed.stderr)
             agent = project / ".opencode" / "agents" / "advisor-sol-medium.md"
             self.assertTrue(agent.is_file())
+            reference = project / ".opencode" / "skills" / "consulting-senior-advisor" / "references"
+            self.assertTrue((reference / "active-integration.md").is_file())
             checked = run_command(*command, "--check", directory=project)
 
             self.assertEqual(checked.returncode, 0, checked.stderr)

@@ -17,7 +17,9 @@ list  allow
 lsp   allow
 ```
 
-Then start an advisor session and ask it to inspect a known source file. Confirm that it can read and search the project.
+In a primary-agent session, ask the agent to invoke `task` with `subagent_type` set to `advisor-terra-high`. Confirm that the advisor starts. This step is required because `hidden: true` omits advisors from `@` autocomplete.
+
+Then ask the advisor to inspect a known source file. Confirm that it can read and search the project.
 
 In separate sessions, ask the advisor to run a shell command, edit a file, and start a nested task. OpenCode must deny each action. Do not use `--auto`, because it changes approvals that are not explicitly denied.
 

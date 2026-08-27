@@ -123,7 +123,7 @@ def installation_files(profile: Profile, destination: Path) -> tuple[tuple[Path,
         / "skills"
         / "consulting-senior-advisor"
         / "references"
-        / "active-profile.md"
+        / "active-integration.md"
     )
     return selected_files + (
         (POLICY_SOURCE, destination / "advisor-policy.md"),

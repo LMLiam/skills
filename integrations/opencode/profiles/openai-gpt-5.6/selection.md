@@ -13,3 +13,17 @@ Select the least expensive tier that resolves the decision. Do not substitute a 
 | `advisor-sol-max` | Difficulty and cost of error are exceptional, or conflicting evidence defeated a lower tier. | `openai/gpt-5.6-sol`, `max` |
 
 Breadth favours Terra. Ambiguity, novel inference, and high consequences favour Sol. Do not use Luna, `low`, Terra `medium`, Sol `low`, or `ultra`. Skip consultation when those depths would suffice.
+
+## Invoke And Wait
+
+In OpenCode, invoke the selected advisor in the foreground:
+
+```text
+task({
+  description: "Review technical decision",
+  subagent_type: "<exact advisor name from this table>",
+  prompt: "<decision packet>"
+})
+```
+
+Do not use background mode. Wait for a terminal result before implementation. If the advisor, model, or variant is unavailable, do not substitute another advisor. Ask the human whether to retry the same tier or continue without advice when that decision is material.
