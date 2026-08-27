@@ -1,0 +1,35 @@
+{
+  "name": "opencode-gpt-5.6",
+  "minimum_opencode_version": "1.18.23",
+  "provider": "opencode",
+  "agents": {
+    "advisor-terra-high": {
+      "model": "opencode/gpt-5.6-terra",
+      "variant": "high"
+    },
+    "advisor-terra-xhigh": {
+      "model": "opencode/gpt-5.6-terra",
+      "variant": "xhigh"
+    },
+    "advisor-terra-max": {
+      "model": "opencode/gpt-5.6-terra",
+      "variant": "max"
+    },
+    "advisor-sol-medium": {
+      "model": "opencode/gpt-5.6-sol",
+      "variant": "medium"
+    },
+    "advisor-sol-high": {
+      "model": "opencode/gpt-5.6-sol",
+      "variant": "high"
+    },
+    "advisor-sol-xhigh": {
+      "model": "opencode/gpt-5.6-sol",
+      "variant": "xhigh"
+    },
+    "advisor-sol-max": {
+      "model": "opencode/gpt-5.6-sol",
+      "variant": "max"
+    }
+  }
+}

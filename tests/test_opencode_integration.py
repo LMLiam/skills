@@ -170,7 +170,8 @@ class OpenCodeIntegrationTests(unittest.TestCase):
             )
 
             self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertIn("Profile (openai-gpt-5.6):", result.stdout)
+            self.assertIn("Profile (", result.stdout)
+            self.assertIn("openai-gpt-5.6", result.stdout)
             self.assertIn("Scope (user/project) [user]:", result.stdout)
 
 
