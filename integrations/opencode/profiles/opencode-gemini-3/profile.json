@@ -1,0 +1,11 @@
+{
+  "name": "opencode-gemini-3",
+  "minimum_opencode_version": "1.18.23",
+  "provider": "opencode",
+  "agents": {
+    "advisor-flash-medium": { "model": "opencode/gemini-3.7-flash", "variant": "medium" },
+    "advisor-flash-high":   { "model": "opencode/gemini-3.7-flash", "variant": "high" },
+    "advisor-pro-medium":   { "model": "opencode/gemini-3.1-pro",   "variant": "medium" },
+    "advisor-pro-high":     { "model": "opencode/gemini-3.1-pro",   "variant": "high" }
+  }
+}
