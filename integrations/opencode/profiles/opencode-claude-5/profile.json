@@ -1,0 +1,17 @@
+{
+  "name": "opencode-claude-5",
+  "minimum_opencode_version": "1.18.23",
+  "provider": "opencode",
+  "agents": {
+    "advisor-sonnet-medium": { "model": "opencode/claude-sonnet-5", "variant": "medium" },
+    "advisor-sonnet-high":   { "model": "opencode/claude-sonnet-5", "variant": "high" },
+    "advisor-sonnet-xhigh":  { "model": "opencode/claude-sonnet-5", "variant": "xhigh" },
+    "advisor-sonnet-max":    { "model": "opencode/claude-sonnet-5", "variant": "max" },
+    "advisor-opus-medium":   { "model": "opencode/claude-opus-5",   "variant": "medium" },
+    "advisor-opus-high":     { "model": "opencode/claude-opus-5",   "variant": "high" },
+    "advisor-opus-xhigh":    { "model": "opencode/claude-opus-5",   "variant": "xhigh" },
+    "advisor-opus-max":      { "model": "opencode/claude-opus-5",   "variant": "max" },
+    "advisor-fable-xhigh":   { "model": "opencode/claude-fable-5",  "variant": "xhigh" },
+    "advisor-fable-max":     { "model": "opencode/claude-fable-5",  "variant": "max" }
+  }
+}
