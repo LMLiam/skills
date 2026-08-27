@@ -1,6 +1,6 @@
 # Consulting Senior Advisor: OpenCode
 
-This integration configures the `consulting-senior-advisor` skill for OpenCode 1.18.23 or later. It installs one explicit provider profile at a time with seven named, read-only advisor agents.
+This integration configures the `consulting-senior-advisor` skill for OpenCode 1.18.23 or later. It installs one explicit provider profile at a time with a set of named, read-only advisor agents.
 
 The profile does not discover, rank, or substitute models. If a configured model is unavailable, installation stops.
 
@@ -69,7 +69,6 @@ Use [the permission probes](tests/permission-probes.md) to verify enforcement af
 | --- | --- | --- | --- |
 | `openai-gpt-5.6` | `openai` | `openai/gpt-5.6-terra`, `openai/gpt-5.6-sol` | ChatGPT Plus/Pro OAuth or `OPENAI_API_KEY` |
 | `opencode-gpt-5.6` | `opencode` | `opencode/gpt-5.6-terra`, `opencode/gpt-5.6-sol` | OpenCode Zen API key (`/connect` → `opencode`) — no ChatGPT subscription required |
+| `opencode-claude-5` | `opencode` | `opencode/claude-sonnet-5`, `opencode/claude-opus-5`, `opencode/claude-fable-5` | OpenCode Zen API key (`/connect` → `opencode`) — no ChatGPT or Anthropic subscription required |
 
-Both profiles have identical tier mappings (Terra for breadth, Sol for ambiguity and high consequence). Do not treat tier names as equivalent to another provider profile. Add another profile only after it has a reviewed mapping and passes the same installation, safety, and behavioural checks.
-
-`opencode-gpt-5.6` is the exact Zen mirror of `openai-gpt-5.6`: same seven advisors, same variants (`high`/`xhigh`/`max`/`medium`), same read-only permissions, same selection guidance — only the provider prefix changes from `openai/` to `opencode/`.
+`openai-gpt-5.6` and `opencode-gpt-5.6` share identical tier mappings (Terra for breadth, Sol for ambiguity and high consequence). `opencode-claude-5` is a separate Claude-native profile with its own ten-tier surface across Sonnet 5, Opus 5, and Fable 5. Each profile defines its own agent names. Do not treat tier names as equivalent to another provider profile. Add another profile only after it has a reviewed mapping and passes the same installation, safety, and behavioural checks.

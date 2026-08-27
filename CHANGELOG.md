@@ -15,4 +15,5 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Rel
 ### Added
 
 - Added `opencode-gpt-5.6` provider profile mirroring `openai-gpt-5.6` via OpenCode Zen (`opencode/gpt-5.6-*`) so no ChatGPT Plus/Pro OAuth is required.
+- Added `opencode-claude-5` provider profile using Claude Sonnet 5, Opus 5, and Fable 5 via OpenCode Zen (`opencode/claude-*-5`) so no ChatGPT Plus/Pro or Anthropic subscription is required.
 - Added evaluation cases and repository validation for the portable core and integrations.
