@@ -1,8 +1,15 @@
-# Codex Skills
+# Skills
 
-This repository contains shareable Codex skills.
+This repository contains shareable skills for agent harnesses.
+
+Each skill uses this structure:
+
+```text
+<skill>/<harness>/
+```
 
 ## Skills
 
-- [`codex-advisor`](codex-advisor/) provides a read-only advisor for difficult
-  technical decisions.
+| Skill | Harness | Purpose |
+| --- | --- | --- |
+| [`consulting-senior-advisor`](consulting-senior-advisor/) | [`Codex`](consulting-senior-advisor/codex/) | Routes difficult technical decisions to a read-only advisor. |
