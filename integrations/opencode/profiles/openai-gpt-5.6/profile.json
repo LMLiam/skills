@@ -1,0 +1,35 @@
+{
+  "name": "openai-gpt-5.6",
+  "minimum_opencode_version": "1.18.23",
+  "provider": "openai",
+  "agents": {
+    "advisor-terra-high": {
+      "model": "openai/gpt-5.6-terra",
+      "variant": "high"
+    },
+    "advisor-terra-xhigh": {
+      "model": "openai/gpt-5.6-terra",
+      "variant": "xhigh"
+    },
+    "advisor-terra-max": {
+      "model": "openai/gpt-5.6-terra",
+      "variant": "max"
+    },
+    "advisor-sol-medium": {
+      "model": "openai/gpt-5.6-sol",
+      "variant": "medium"
+    },
+    "advisor-sol-high": {
+      "model": "openai/gpt-5.6-sol",
+      "variant": "high"
+    },
+    "advisor-sol-xhigh": {
+      "model": "openai/gpt-5.6-sol",
+      "variant": "xhigh"
+    },
+    "advisor-sol-max": {
+      "model": "openai/gpt-5.6-sol",
+      "variant": "max"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "provider-profile-name",
+  "minimum_opencode_version": "1.18.23",
+  "provider": "provider-id",
+  "agents": {
+    "advisor-example": {
+      "model": "provider-id/model-id",
+      "variant": "provider-specific-variant"
+    }
+  }
+}
