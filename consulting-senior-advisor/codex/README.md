@@ -1,10 +1,8 @@
 # Consulting Senior Advisor: Codex
 
-This directory contains the Codex files for the `consulting-senior-advisor`
-skill.
+This directory contains the Codex files for the `consulting-senior-advisor` skill.
 
-The skill routes difficult or high-risk decisions to a read-only advisor. The
-advisor provides judgement and does not implement changes.
+The skill routes difficult or high-risk decisions to a read-only advisor. The advisor provides judgement and does not implement changes.
 
 ## Contents
 
