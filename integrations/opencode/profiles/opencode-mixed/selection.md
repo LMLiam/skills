@@ -4,7 +4,7 @@ Select the least expensive tier that resolves the decision. Do not substitute a 
 
 This profile uses the best available Zen model for each reasoning tier, chosen across model families. It runs through the OpenCode Zen provider (`opencode/`). No ChatGPT Plus/Pro OAuth, no Anthropic subscription, and no separate Google or xAI account are required beyond one Zen API key.
 
-The profile is a flat ladder of thirteen tiers. Ability sets the order, from the Artificial Analysis Intelligence Index. Within one index value, the profile uses the cheapest model and variant. Each tier runs one model and one variant. The tiers intentionally mix model families (GPT-5.6, Gemini, Claude, Grok) inside one ladder.
+The profile is a flat ladder of twelve tiers. Ability sets the order, from the Artificial Analysis Intelligence Index. Within one index value, the profile uses the cheapest model and variant. Each tier runs one model and one variant. The tiers intentionally mix model families (GPT-5.6, Gemini, Claude, Grok) inside one ladder. The profile does not use shallow `low` or `minimal` reasoning depths, which are not useful for senior advice.
 
 Select the lowest tier whose ability resolves the decision. Do not use a higher tier when the current tier suffices; do not use a lower tier when evidence is incomplete or contradictory.
 
@@ -12,7 +12,6 @@ Select the lowest tier whose ability resolves the decision. Do not use a higher 
 | --- | --- | --- | --- |
 | `advisor-luna-high` | `opencode/gpt-5.6-luna`, `high` | 47 | A lifecycle check-in where no binding recommendation is needed. |
 | `advisor-pro3-medium` | `opencode/gemini-3.1-pro`, `medium` | 48 | A bounded low-risk decision with clear evidence. |
-| `advisor-gem37-low` | `opencode/gemini-3.7-flash`, `low` | 51 | A routine decision that needs a careful but shallow pass. |
 | `advisor-luna-max` | `opencode/gpt-5.6-luna`, `max` | 52 | A standard decision where cost matters and ability is ample. |
 | `advisor-gem37-medium` | `opencode/gemini-3.7-flash`, `medium` | 53 | A bounded decision with moderate consequence. |
 | `advisor-sonnet5-max` | `opencode/claude-sonnet-5`, `max` | 55 | An ambiguous or moderate-risk decision that needs careful synthesis. |

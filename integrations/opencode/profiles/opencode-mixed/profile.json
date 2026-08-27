@@ -5,7 +5,6 @@
   "agents": {
     "advisor-luna-high":     { "model": "opencode/gpt-5.6-luna",     "variant": "high" },
     "advisor-pro3-medium":   { "model": "opencode/gemini-3.1-pro",   "variant": "medium" },
-    "advisor-gem37-low":     { "model": "opencode/gemini-3.7-flash", "variant": "low" },
     "advisor-luna-max":      { "model": "opencode/gpt-5.6-luna",     "variant": "max" },
     "advisor-gem37-medium":  { "model": "opencode/gemini-3.7-flash", "variant": "medium" },
     "advisor-sonnet5-max":   { "model": "opencode/claude-sonnet-5",  "variant": "max" },
