@@ -8,6 +8,12 @@ Shareable Agent Skills with harness-specific integration assets.
 | --- | --- | --- |
 | [`consulting-senior-advisor`](skills/consulting-senior-advisor/) | Routes difficult technical decisions to an advice-only senior advisor. | [OpenCode](integrations/opencode/) |
 
+## Available Integrations
+
+| Integration | Purpose |
+| --- | --- |
+| [Claude Code orchestration agents](integrations/claude-code/) | Four subagents (`scout`, `verifier`, `implementer`, `reviewer`) and a pattern for delegating work from the main session to cheaper models. |
+
 ## Architecture
 
 Each skill under `skills/` follows the [Agent Skills specification](https://agentskills.io/specification). It contains portable workflow rules and does not select a model provider.
@@ -24,7 +30,7 @@ scripts/                        # Repository validation
 
 Install the portable skill with a compatible Agent Skills installer, or place `skills/<name>/` in your harness skill directory. Then install the OpenCode integration before you use the skill.
 
-Use the [OpenCode integration guide](integrations/opencode/README.md).
+Use the [OpenCode integration guide](integrations/opencode/README.md). To install the Claude Code agents, use the [Claude Code guide](integrations/claude-code/README.md).
 
 The integrations are not installed by a skill installer. They contain harness configuration that needs local review before installation.
 
