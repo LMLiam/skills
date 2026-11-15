@@ -6,6 +6,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Rel
 
 ## Unreleased
 
+### Changed
+
+- The Claude Code `implementer` defaults to Haiku at medium effort, with standing rules for Haiku: edit rather than suggest, read before editing, stay in scope, no hard-coding for tests, verify with a real run, stop and report when a step is impossible.
+- The Claude Code `reviewer` runs at medium effort, stays within the diff and the brief, lists out-of-scope ideas under Suggestions, and starts no extra review rounds or subagents.
+- The `implementer` no longer stops shared build daemons unless the brief says to.
+
+### Added
+
+- Added per-model briefing guidance for Haiku, Sonnet and the Opus advisor to the Claude Code integration, based on Anthropic's prompting guides.
+
 ## [0.2.0] - 2026-11-13
 
 ### Added
